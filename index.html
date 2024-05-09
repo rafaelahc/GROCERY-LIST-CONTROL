@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>CONTROLE DE COMPRAS</title>
+
+
+    <!-- Links -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- FONt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+    
+</head>
+
+<body>
+    <div class="header">
+        <h1>Controle de Compras</h1>
+    </div>
+    <div class="card-container">
+        <div class="total-container">
+            <span  class="currency-symbol">€</span>
+            <input type="text"  class="total-display" placeholder="0,00" readonly>
+        </div>
+        <div class="list-items">
+        </div>
+        <div class="inputs-new-items">
+            <div class="card-add-new-items">
+                <input type="text" id="input-add-description" class="new-description" placeholder="Ex. Banana">
+                <input type="number" id="input-add-value" class="new-value" placeholder="€ 0.00">
+                <button class="btn-add">Adicionar</button>
+            </div>
+        </div>
+
+</html>

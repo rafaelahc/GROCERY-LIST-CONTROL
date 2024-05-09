@@ -1,0 +1,195 @@
+:root {
+    --body-background: #f2efef;
+    --card-background: linear-gradient(to bottom left, #ef8d9c 40%, #ffc39e 100%);
+    --page-title-font: "Montserrat", sans-serif;
+    --box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.15);
+    /* --total-background:; */
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: .5px;
+    font-family: "Radio Canada Big", sans-serif;
+}
+
+.header {
+    padding: 20px 20px 0 20px;
+    font-size: 14px;
+    background-image: url(./img/body-background.jpg);
+    background-position: center;
+    background-size: cover;
+    margin: 20px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: var(--box-shadow);
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2); 
+    border-radius: 10px;
+}
+
+.header h1 {
+    font-family: var(--page-title-font);
+    margin-top: 40px;
+    color: #fff;
+    position: relative;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+input::placeholder {
+    color: #fff;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+.card-container {
+    padding: 20px;
+}
+
+.total-container {
+    background-color: #0F0F0F;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px 20px;
+    font-size: 25px;
+    box-shadow: var(--box-shadow);
+}
+
+.total-container::before {
+    content: "Total";
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.total-container .total-display {
+    width: 160px;
+    font-size: 40px;
+    font-weight: bold;
+    
+}
+
+.currency-symbol, .total-display, .total-display::placeholder {
+    color: #ff7b53;
+}
+
+.list-items {
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.card-list-items {
+    background-color: #e9e9e9;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    box-shadow: 10px 6px 20px -8px rgba(0, 0, 0, 0.15);
+}
+
+.card-list-items input {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    min-width: 0;
+}
+
+.description {
+    flex: 3;
+}
+
+.value {
+    flex: 1;
+    margin-left: 5px;
+}
+
+.card-list-items:not(:first-child) {
+    margin-top: 10px;
+}
+
+
+.card-list-items input::placeholder,
+.card-add-new-items input::placeholder {
+    color: #979797;
+    font-size: 13px;
+    
+}
+
+
+.btn-delete {
+    background-color: transparent;
+    font-size: 15px;
+    color: #4b4b4b;
+}
+
+
+.inputs-new-items {
+    background-color: #e9e9e9;
+    padding: 20px;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    right: 0;
+}
+
+.card-add-new-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.card-add-new-items input {
+    background-color: #fff;
+    border-radius: 4px;
+    min-width: 0;
+    padding: 10px 15px;   
+}
+
+input#input-add-description {
+    flex: 3;  
+}
+
+input#input-add-value {
+    flex: 1;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input#input-add-value::-webkit-inner-spin-button,
+input#input-add-value::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.btn-add {
+    background-color: #1b1b1b;
+    color: #fff;
+    border-radius: 4px;
+    padding: 10px 15px;
+}
