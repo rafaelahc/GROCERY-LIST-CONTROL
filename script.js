@@ -27,19 +27,42 @@ let arrayItems = [];
 /* __________________________________________________________________________________ */
 
 /* FUNÇÕES */
-const validateInputsAndPushArray = () => {
-    if (inputAddNewDescription.value.trim() === "" && inputAddNewValue.value.trim() === "") {
-       return inputAddNewDescription.focus();
-    }
 
-    const newItem =
-    {
-        desc: inputAddNewDescription.value,
-        value: parseFloat(inputAddNewValue.value).toFixed(2)
-    }
+// const formatter = new Intl.NumberFormat('pt-PT', {
+//     minimumFractionDigits: 2,
+//     maximumFractionDigits: 2
+// });
 
-    arrayItems.push(newItem);
+// const formatNumber = (number) => formatter.format(number);
+
+function currencyFormat(value) {
+    return value.toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
+
+function parseCurrencyValue(value) {
+    return parseFloat(value).toFixed(2); // Arredonda para duas casas decimais
+}
+
+const validateInputsAndPushArray = () => {
+    const value = parseFloat(inputAddNewValue.value.replace(',', '.'));
+
+    if (inputAddNewDescription.value !== "" && !isNaN(value)) {
+        const newItem =
+        {
+            desc: inputAddNewDescription.value,
+            value: value
+        }
+    
+        arrayItems.push(newItem);   
+        return true;
+
+    } else {
+        return false;
+    }   
+
+    
+}
+
 
 const listItems = () => {
     containerList.innerHTML = " ";
@@ -50,16 +73,16 @@ const listItems = () => {
         newListItems.innerHTML = `
             <input type="text" class="description" value="${items.desc}" readonly>
             <span class="currency">€</span>
-            <input type="text" class="value" value="${items.value}" readonly>
+            <input type="text" class="value" value="${currencyFormat(items.value)}" readonly>
             <div class="btn-group">
-                <button onclick="deleteItem('${arrayItems.indexOf(items)}')" class="btn-delete"><i class="fa-regular fa-circle-xmark"></i></button>
+                <button onclick="deleteItem('${arrayItems.indexOf(items)}')" class="btn-delete"><i class="fa-solid fa-circle-xmark"></i></button>
             </div>
         `
         containerList.appendChild(newListItems);        
 
         updateTotal();
     })
-
+    containerList.scrollTop = containerList.scrollHeight;
 }
 
 let total = 0;
@@ -67,19 +90,31 @@ let total = 0;
 const updateTotal = () => {
     total = 0;
     arrayItems.forEach(item => {
-        total += parseFloat(item.value);
+        console.log(item);
+        total += item.value
     });
 
-    totalDisplay.value = parseFloat(total).toFixed(2);
+    totalDisplay.value = currencyFormat(total);
 }
 
 
 const addItemsToList = () => {
-    validateInputsAndPushArray();
-    listItems();
-    setStorage();
-    inputAddNewDescription.value = '';
-    inputAddNewValue.value = '';       
+    
+    let result = validateInputsAndPushArray();
+    if (result === true) {
+
+        setStorage();
+        listItems();
+        inputAddNewDescription.value = '';
+        inputAddNewValue.value = ''; 
+    } else {
+        if (inputAddNewDescription.value !== "") {
+            return inputAddNewValue.focus();
+        }
+        return inputAddNewDescription.focus();
+        
+    }
+      
 }
 
 const deleteItem = (index) => {
