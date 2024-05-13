@@ -20,6 +20,8 @@ const listValue = document.querySelector('.value');
 const inputAddNewDescription = document.querySelector('#input-add-description');
 const inputAddNewValue = document.querySelector('#input-add-value');
 
+/* Clean Storage Button */
+const btnCleanData = document.querySelector('.btn-clean-all');
 
 /* Array list items */
 let arrayItems = [];
@@ -124,6 +126,19 @@ const deleteItem = (index) => {
     listItems();
     updateTotal();
 }
+
+const cleanData = () => {
+    localStorage.clear();
+    containerList.innerHTML = " ";
+    totalDisplay.value = "0,00";
+    arrayItems = [];
+}
+
+btnCleanData.addEventListener('click', function() {
+    cleanData();
+
+});
+
 
 btnAdd.addEventListener('click', addItemsToList);
 

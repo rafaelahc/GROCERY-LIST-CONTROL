@@ -213,6 +213,18 @@ input#input-add-value::-webkit-outer-spin-button {
     padding: 10px 15px;
 }
 
+.clean-storage {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px;
+}
+.btn-clean-all {
+    background-color: #1b1b1b;
+    color: #fff;
+    border-radius: 4px;
+    padding: 10px 15px;
+}
+
 
 @media screen and (max-width: 768px) {
     .list-items {
