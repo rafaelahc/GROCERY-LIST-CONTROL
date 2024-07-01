@@ -65,10 +65,6 @@ button {
     border: none;
 }
 
-/* .card-container {
-    padding: 20px;
-} */
-
 .total-container {
     background-color: var(--total-background);
     color: #fff;
@@ -103,7 +99,7 @@ button {
     border-radius: 10px;
     margin-top: 20px;
     overflow-y: scroll; /* Adiciona uma barra de rolagem vertical */
-    max-height: calc(100vh - 450px); /* Define uma altura máxima */
+    max-height: calc(100vh - 500px); /* Define uma altura máxima */
     margin: 20px;
 }
 
@@ -218,6 +214,7 @@ input#input-add-value::-webkit-outer-spin-button {
     justify-content: flex-end;
     padding: 0 20px;
 }
+
 .btn-clean-all {
     background-color: #1b1b1b;
     color: #fff;
@@ -228,7 +225,7 @@ input#input-add-value::-webkit-outer-spin-button {
 
 @media screen and (max-width: 768px) {
     .list-items {
-        max-height: calc(100vh - 450px);
+        max-height: calc(100vh - 500px);
     }
 }
 
